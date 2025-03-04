@@ -14,7 +14,7 @@
   --image-height: calc(var(--header-height) * 0.8);
 
   /* The title font size is 80% of the image's width (which equals its height) */
-  --title-font-size: calc(var(--image-height) * 0.6);
+  --title-font-size: calc(var(--image-height) * 0.45);
 }
 
 body {
