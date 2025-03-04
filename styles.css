@@ -5,47 +5,57 @@
   box-sizing: border-box;
 }
 
-/* Body just needs some text to show scrolling */
+/* Define reusable CSS variables in the :root pseudo-class */
+:root {
+  /* The base header height: 1/12.5 of the viewport */
+  --header-height: calc(100vh / 12.5);
+
+  /* The image is 80% of the header height */
+  --image-height: calc(var(--header-height) * 0.8);
+
+  /* The title font size is 80% of the image's width (which equals its height) */
+  --title-font-size: calc(var(--image-height) * 0.8);
+}
+
 body {
   font-family: sans-serif;
 }
 
-/* Fixed header occupying 1/15 of the viewport height */
+/* Fixed header occupying var(--header-height) */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vh / 15); /* 1/15 of viewport height */
-  background-color: #fff;   /* White background */
-  display: flex;           /* For horizontal alignment of image & text */
-  align-items: center;     /* Vertically center them */
-  border-bottom: 1px solid #ccc; /* Subtle bottom border (optional) */
+  height: var(--header-height);
+  background-color: #fff;
+  display: flex;        /* For horizontal alignment of image & text */
+  align-items: center;  /* Vertically center them */
+  border-bottom: 1px solid #ccc; /* Optional subtle bottom border */
 }
 
-/* The image is a square with width = 80% of the header’s height */
+/* Image is a square with height = var(--image-height) */
 header img {
-  height: 80%;
-  aspect-ratio: 1/1; /* Ensures it's square */
-  object-fit: cover;  /* or "contain", depending on your image */
-  margin-left: 1rem;  /* spacing on the left */
+  height: var(--image-height);
+  aspect-ratio: 1/1; 
+  object-fit: cover;
+  margin-left: 1rem;
 }
 
-/* The text to the right of the image */
+/* Text is to the right of the image, font-size = var(--title-font-size) */
 header .title {
   margin-left: 1rem;
-  color: #000;      /* black text */
-  font-size: 1.2rem;
-  white-space: nowrap; /* keep text on a single line */
+  color: #000;
+  font-size: var(--title-font-size);
+  white-space: nowrap;
 }
 
 /* Main content starts below the header */
 main {
-  margin-top: calc(100vh / 15); /* same as header height */
+  margin-top: var(--header-height); /* match header height */
   padding: 1rem;
 }
 
-/* Just some extra text style for demonstration */
 p {
   margin-bottom: 1rem;
   line-height: 1.5;
