@@ -1,83 +1,52 @@
-/* Basic Reset & Global Styles */
+/* Reset default margin/padding */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body just needs some text to show scrolling */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #fafafa;
+  font-family: sans-serif;
 }
 
-/* Header */
+/* Fixed header occupying 1/15 of the viewport height */
 header {
-  background: #eee;
-  padding: 1rem;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-header h1 {
-  font-size: 1.8rem;
-  margin-bottom: 0.3rem;
-}
-
-header p {
-  font-size: 1rem;
-  color: #666;
-}
-
-/* Intro Section Layout */
-.intro {
-  display: flex;
-  flex-wrap: wrap; /* Allows wrapping on narrow screens */
-  gap: 1rem;
-  margin: 0 1rem 1rem 1rem;
-}
-
-.image-wrapper {
-  flex: 0 0 250px; /* Reserve some width for the image */
-  max-width: 100%;
-}
-
-.image-wrapper img {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  border-radius: 4px;
-  display: block;
+  height: calc(100vh / 15); /* 1/15 of viewport height */
+  background-color: #fff;   /* White background */
+  display: flex;           /* For horizontal alignment of image & text */
+  align-items: center;     /* Vertically center them */
+  border-bottom: 1px solid #ccc; /* Subtle bottom border (optional) */
 }
 
-.text-wrapper {
-  flex: 1; /* Expand to fill remaining space */
-  min-width: 250px;
+/* The image is a square with width = 80% of the header’s height */
+header img {
+  height: 80%;
+  aspect-ratio: 1/1; /* Ensures it's square */
+  object-fit: cover;  /* or "contain", depending on your image */
+  margin-left: 1rem;  /* spacing on the left */
 }
 
-/* Work Section */
-.work {
-  margin: 0 1rem 1rem 1rem;
+/* The text to the right of the image */
+header .title {
+  margin-left: 1rem;
+  color: #000;      /* black text */
+  font-size: 1.2rem;
+  white-space: nowrap; /* keep text on a single line */
 }
 
-.work h2 {
-  margin-bottom: 0.5rem;
-  font-size: 1.4rem;
+/* Main content starts below the header */
+main {
+  margin-top: calc(100vh / 15); /* same as header height */
+  padding: 1rem;
 }
 
-.work p {
+/* Just some extra text style for demonstration */
+p {
   margin-bottom: 1rem;
-}
-
-.work .image-wrapper {
-  margin-top: 1rem;
-  max-width: 500px;
-}
-
-/* Footer */
-footer {
-  background: #eee;
-  text-align: center;
-  padding: 0.5rem;
-  font-size: 0.9rem;
+  line-height: 1.5;
 }
