@@ -1,2 +1,1 @@
-# XRC.github.io
-personal webpage
+# personal webpage
