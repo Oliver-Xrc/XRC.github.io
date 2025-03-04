@@ -1,21 +1,83 @@
-body {
-  font-family: Arial, sans-serif;
+/* Basic Reset & Global Styles */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  box-sizing: border-box;
 }
 
-header, footer {
-  background-color: #333;
-  color: #fff;
-  padding: 1em;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fafafa;
+}
+
+/* Header */
+header {
+  background: #eee;
+  padding: 1rem;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
-section {
-  margin: 2em;
-  padding: 1em;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+header p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Intro Section Layout */
+.intro {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on narrow screens */
+  gap: 1rem;
+  margin: 0 1rem 1rem 1rem;
+}
+
+.image-wrapper {
+  flex: 0 0 250px; /* Reserve some width for the image */
+  max-width: 100%;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+.text-wrapper {
+  flex: 1; /* Expand to fill remaining space */
+  min-width: 250px;
+}
+
+/* Work Section */
+.work {
+  margin: 0 1rem 1rem 1rem;
+}
+
+.work h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.work p {
+  margin-bottom: 1rem;
+}
+
+.work .image-wrapper {
+  margin-top: 1rem;
+  max-width: 500px;
+}
+
+/* Footer */
+footer {
+  background: #eee;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.9rem;
 }
