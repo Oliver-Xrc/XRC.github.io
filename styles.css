@@ -1,0 +1,116 @@
+/* Reset default margin/padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define reusable CSS variables in the :root pseudo-class */
+:root {
+  --header-height: calc(100vh / 12.5);
+  --image-height: calc(var(--header-height) * 0.8);
+  --title-font-size: calc(var(--image-height) * 0.45);
+  /* optional: --body-font-size: calc(var(--title-font-size) * 0.5); */
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* Fixed header occupying var(--header-height) */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  gap: 1rem;                
+  border-bottom: 1px solid #ccc;
+}
+
+header img {
+  height: var(--image-height);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+header .title {
+  color: #000;
+  font-size: var(--title-font-size);
+  white-space: nowrap;
+}
+
+/* Main content starts below the header */
+main {
+  margin-top: var(--header-height);
+  padding: 1rem;
+}
+
+/* 
+   The "hero" is a flex container that can wrap if there's not enough space.
+   The image is 40% viewport height, no cropping (object-fit: contain).
+*/
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+  justify-content: center; /* center the hero content horizontally */
+}
+
+.hero img {
+  height: 40vh;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* 
+   By default, the textbox can grow freely, 
+   but now we add padding = 10% of its own width.
+*/
+.hero .textbox {
+  flex: 1 1 auto;
+  padding: 1%;  /* 1/10 of the textbox's own width */
+}
+
+/*
+  When the screen is wide enough (≥ 1000px), 
+  we assume there's room to keep them on the same row, 
+  so we restrict the textbox to 40vh max width.
+*/
+@media (min-width: 1000px) {
+  .hero .textbox {
+    max-width: 40vh;
+  }
+}
+
+/* NEW: The "works" section below the hero */
+.works {
+  /* We'll center items horizontally to match the hero style */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* spacing between the divider and the new textbox */
+  margin-top: 2rem; /* a bit of spacing from the hero container */
+}
+
+/* Horizontal line: length = 80% of the hero container's width */
+.works .divider {
+  width: 80%;
+  max-width: 88vh;            /* 80% of .works container's width */
+  border: 1px solid #ccc; 
+  margin: 0 auto;        /* center it horizontally */
+}
+
+/* The second text box in the "works" section */
+.works .textbox {
+  width: 80%;            /* or any width you like */
+  max-width: 100vh;       /* optional, matching hero's logic */
+  padding: 1.5%;          /* again, 10% of its own width */
+}
